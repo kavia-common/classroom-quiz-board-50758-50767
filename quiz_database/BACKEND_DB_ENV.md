@@ -19,7 +19,7 @@ DATABASES = {
   }
 }
 
-Alternatively, parse POSTGRES_URL and override fields accordingly.
+Alternatively, parse POSTGRES_URL and override fields accordingly. If both URL and individual vars are present, prefer individual vars to avoid conflicts during port changes. Ensure POSTGRES_PORT=5001 for this environment.
 
 Important:
 - Do not hardcode DB credentials in code; rely on .env.

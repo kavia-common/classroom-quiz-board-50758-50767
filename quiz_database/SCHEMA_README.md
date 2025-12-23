@@ -5,6 +5,7 @@ This container hosts a PostgreSQL database for the classroom quiz app.
 Port alignment:
 - Database listens on localhost:5001 (preview environment)
 - Connection examples below use 5001
+- If your local dev already started PostgreSQL on a different port, update startup.sh DB_PORT to 5001 and restart.
 
 Connection string (psql):
 psql postgresql://appuser:dbuser123@localhost:5001/myapp
