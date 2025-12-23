@@ -338,11 +338,13 @@ const envInfo = {
   MongoDB: 'MONGODB_URL, MONGODB_DB'
 };
 
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-  console.log(`Database viewer running on http://localhost:${PORT}`);
+const PORT = parseInt(process.env.PORT || "", 10) || 5002; // avoid conflicts with common dev ports (3000/5000)
+const HOST = process.env.HOST || "0.0.0.0";
+app.listen(PORT, HOST, () => {
+  console.log(`Database viewer running on http://${HOST === "0.0.0.0" ? "localhost" : HOST}:${PORT}`);
   console.log('\nEnvironment variables expected:');
   Object.entries(envInfo).forEach(([db, vars]) => {
     console.log(`${db}: ${vars}`);
   });
+  console.log('\nTip: You can override the viewer port with: PORT=5050 node server.js');
 });
